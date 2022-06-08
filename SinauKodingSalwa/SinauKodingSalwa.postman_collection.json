@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "d37927c6-c401-44fc-b259-cf7eb7cb74ca",
+		"name": "SinauKodingSalwa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Anggota",
+			"item": [
+				{
+					"name": "Select All Anggota",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\" : \"Anggota 5\",\r\n    \"alamat\" : \"Alamat 5\",\r\n    \"noTelp\" : \"Nomor Telfon 5\",\r\n    \"tglLahir\" : \"1999-01-05\",\r\n    \"jenisKelamin\" : \"Laki-laki \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/anggota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"anggota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Anggota",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\" : \"Anggota 5\",\r\n    \"alamat\" : \"Alamat 5\",\r\n    \"noTelp\" : \"nomor Telfon 5\",\r\n    \"tglLahir\" : \"1999-02-04\",\r\n    \"jenisKelamin\" : \"Perempuan\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/anggota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"anggota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data Anggota",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/anggota/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"anggota",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select by Nama ANggota",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/anggota/findNama?nama=Anggota 2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"anggota",
+								"findNama"
+							],
+							"query": [
+								{
+									"key": "nama",
+									"value": "Anggota 2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Data Anggota",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\" : \"Anggota 5\",\r\n    \"jenisKelamin\" : \"Laki-laki\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/anggota/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"anggota",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buku",
+			"item": [
+				{
+					"name": "Select All Buku",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/buku",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"buku"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Buku",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"judul\" : \"Judul 3\",\r\n    \"penulis\" : \"Penulis 3\",\r\n    \"penerbit\" : \"Penerbit 3\",\r\n    \"tahunTerbit\" : \"2005\",\r\n    \"jenisBuku\": \"Jenis Buku 3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/buku",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"buku"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Select by Judul dan penulis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/buku/jp?judul=5&penulis=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"buku",
+								"jp"
+							],
+							"query": [
+								{
+									"key": "judul",
+									"value": "5"
+								},
+								{
+									"key": "penulis",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data Buku",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/buku/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"buku",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Data Buku",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"judul\" : \"judul 5\",\r\n    \"penerbit\" : \"penerbit 5 Update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/buku/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"buku",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
