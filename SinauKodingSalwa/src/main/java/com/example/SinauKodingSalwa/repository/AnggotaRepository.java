@@ -1,5 +1,4 @@
 package com.example.SinauKodingSalwa.repository;
-
 import com.example.SinauKodingSalwa.entity.Anggota;
 import org.springframework.data.jpa.repository.JpaRepository;
 

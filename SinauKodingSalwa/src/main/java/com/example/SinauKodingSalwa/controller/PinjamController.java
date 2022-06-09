@@ -1,9 +1,7 @@
 package com.example.SinauKodingSalwa.controller;
-import com.example.SinauKodingSalwa.entity.Buku;
+import com.example.SinauKodingSalwa.entity.Anggota;
 import com.example.SinauKodingSalwa.entity.Pinjam;
-import com.example.SinauKodingSalwa.repository.PinjamRepository;
 import com.example.SinauKodingSalwa.response.Response;
-import com.example.SinauKodingSalwa.service.BukuService;
 import com.example.SinauKodingSalwa.service.PinjamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,47 +10,40 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/buku")
+@RequestMapping(value = "/pinjam")
 public class PinjamController {
     @Autowired
     PinjamService pinjamService;
 
-
-    @Autowired
-    PinjamRepository pinjamRepository;
-
-    // create
-    public Pinjam createPinjam(Pinjam param) {
-        return pinjamRepository.save(param);
+    //Create
+    @PostMapping
+    public Pinjam createPinjam(@RequestBody Pinjam pinjam){
+        return pinjamService.createPinjam(pinjam);
     }
 
-    public List<Pinjam> findAll() {
-        return pinjamRepository.findAll();
+    //Read
+    @GetMapping
+    public Response selectAllPinjam(){
+        return new Response(pinjamService.selectAllPinjam(), "Data berhasil ditampilkan", HttpStatus.OK);
     }
-
-    // find by id
-    public Pinjam findById(Integer id){
-        return pinjamRepository.findById(id).get();
+    @GetMapping("{id}")
+    public Response selectPinjamById(@PathVariable Integer id){
+        return new Response(pinjamService.selectPinjamById(id), "Data berhasil ditampilkan", HttpStatus.OK);
     }
 
     //Update
-    public Pinjam updatePinjamById(Pinjam pinjam, int id){
-        Pinjam reference = pinjamRepository.findById(id).get();
-        reference.setAnggota(pinjam.getAnggota()!=null?pinjam.getAnggota():reference.getAnggota());
-        reference.setBuku(pinjam.getBuku()!=null?pinjam.getBuku():reference.getBuku());
-        reference.setTglPinjam(pinjam.getTglPinjam()!=null?pinjam.getTglPinjam():reference.getTglPinjam());
-        reference.setTglKembali(pinjam.getTglKembali()!=null?pinjam.getTglKembali():reference.getTglKembali());
-        return pinjamRepository.save(reference);
+    @PutMapping("/{id}")
+    public Pinjam updatePinjamById(@RequestBody Pinjam param, @PathVariable int id){
+        return pinjamService.updatePinjamById(param, id);
     }
 
     //Delete
-    public Boolean deletePinjamById(int id){
-        Pinjam reference = pinjamRepository.findById(id).orElse(null);
-        if(reference != null){
-            pinjamRepository.delete(reference);
-            return true;
+    @DeleteMapping("/{id}")
+    public String deletePinjamById(@PathVariable int id){
+        if(pinjamService.deletePinjamById(id)) {
+            return "Data berhasil dihapus";
         }else{
-            return false;
+            return "Data gagal dihapus";
         }
     }
 }

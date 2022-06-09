@@ -1,5 +1,4 @@
 package com.example.SinauKodingSalwa;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SinauKodingSalwaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SinauKodingSalwaApplication.class, args);
+		SpringApplication.
+				run(SinauKodingSalwaApplication.class, args);
 	}
-
 }
 
