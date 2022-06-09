@@ -5,12 +5,13 @@ import com.example.SinauKodingSalwa.service.AnggotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/anggota")
-
 public class AnggotaController {
+
     @Autowired
     AnggotaService anggotaService;
 
@@ -45,6 +46,5 @@ public class AnggotaController {
             return "Data gagal dihapus";
         }
     }
-
 
 }

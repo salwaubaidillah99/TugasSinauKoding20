@@ -5,9 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
 
+@Service
 public class AnggotaService {
+
     @Autowired
     AnggotaRepository anggotaRepository;
 
@@ -46,7 +47,4 @@ public class AnggotaService {
             return false;
         }
     }
-
-
 }
-
